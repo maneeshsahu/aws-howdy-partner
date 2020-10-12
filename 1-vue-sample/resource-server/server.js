@@ -79,12 +79,12 @@ app.get('/api/messages', authenticationRequired, (req, res) => {
   res.json({
     messages: [
       {
-        date:  new Date(),
-        text: 'I am a robot.'
-      },
-      {
         date:  new Date(new Date().getTime() - 1000 * 60 * 60),
-        text: 'Hello, world!'
+        text: 'Howdy Partner!'
+      },      
+      {
+        date:  new Date(),
+        text: 'Okta + AWS = Awesome'
       }
     ]
   });
