@@ -43,7 +43,16 @@ Your Okta Organization setup is now complete!
 
 ## Get Started with AWS
 
+To setup the AWS services like API Gateway and Lamba, we will be using serverless and AWS CLI.
+
+### Install Serverless
+
+See installation instructions here for your operating system: <https://www.serverless.com/framework/docs/getting-started/>
+
 ### Install AWS CLI
+
+Follow instructions here: <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
+
 
 
 
