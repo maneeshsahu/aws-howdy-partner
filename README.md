@@ -2,6 +2,10 @@
 
 Follow the steps listed in this README to follow along the demos showcased in the AWS Okta Howdy Partner Event.
 
+### Table of Contents
+**[Okta Setup Instructions](#get-started-with-okta)**<br>
+**[AWS CLI and Serverless](#aws-cli)**<br>
+
 ## Get Started with Okta
 
 ### Install Okta CLI
@@ -41,7 +45,7 @@ Copy and paste the password link in a browser and click on 'Reset Password'.
 Your Okta Organization setup is now complete!
 
 
-## Get Started with AWS
+## AWS CLI
 
 To setup the AWS services like API Gateway and Lamba, we will be using serverless and AWS CLI.
 
