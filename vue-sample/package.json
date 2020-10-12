@@ -1,0 +1,57 @@
+{
+  "name": "custom-login",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "npm run lint && npm run test:custom-login --prefix ../",
+    "pretest": "npm run pretest --prefix ../"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.3",
+    "@okta/okta-signin-widget": "^4.4.4",
+    "@okta/okta-vue": "^2.1.1",
+    "axios": "^0.20.0",
+    "semantic-ui-css": "^2.4.1",
+    "text-encoding": "^0.7.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-plugin-eslint": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.9.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.12",
+    "dotenv": "^8.2.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
