@@ -28,19 +28,19 @@ Run `okta register` to sign up for a new account. You will be prompted for the f
 
 Check your inbox for an email from Okta <noreply@okta.com> with the Subject 'One-time verification code'
 
-![Okta-CLI Register](/images/email-one-time-verification-code.png)
+![One-Time Verification E-mail](/images/email-one-time-verification-code.png)
 
 Copy the verification code and paste in the Okta CLI. 
 
 Once verified, you will get a link to set your password.
 
-![Okta-CLI Verified](/images/okta-cli-complete.png)
+![Okta-CLI Verify](/images/okta-cli-complete.png)
 
 ### Set Password for Okta Organization
 
 Copy and paste the password link in a browser and click on 'Reset Password'.
 
-![Set Okta Password](/images/okta-set-password.png)
+![Set Okta Account Password](/images/okta-set-password.png)
 
 Your Okta Organization setup is now complete!
 

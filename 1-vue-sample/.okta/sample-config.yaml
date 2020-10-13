@@ -2,12 +2,18 @@ oauthClient:
   redirectUris:
     - http://localhost:8080/callback
   applicationType: browser
+trustedOrigins: 
+  - http://localhost:8080
 
 directions: |+2
   Okta configuration written to: .okta.env
   
-  Build this example using NPM:
+  Build and Run Vue Single Page App:
+      cd spa
       npm install
+      npm start
 
-  And run with:
+  Build and Run Express Resource Server:
+      cd resource-server
+      npm install
       npm start
