@@ -4,6 +4,8 @@ Follow the steps listed in this README to follow along the demos showcased in th
 
 ### Table of Contents
 **[Okta Setup Instructions](#get-started-with-okta)**<br>
+**[Run Single Page App with Okta Login](#run-spa)**<br>
+**[Run Resource Server](#run-resource-server)**<br>
 **[AWS CLI and Serverless](#aws-cli)**<br>
 
 ## Get Started with Okta
@@ -43,6 +45,53 @@ Copy and paste the password link in a browser and click on 'Reset Password'.
 ![Set Okta Account Password](/images/okta-set-password.png)
 
 Your Okta Organization setup is now complete!
+
+## Single Page App
+
+This section will help you setup a sample Single Page App with the following capabilities:
+ - Login and Registration
+ - Token Scopes and Claims
+ - Access Token Validation
+ - Logout
+
+This SPA sample is built with VueJS. You can always use your own SPA Framework like Angular or React. Please see <developer.okta.com> to locate samples for your specific technology stack of choice.
+
+In this sample, Okta is the OIDC authorization and token server. The SPA is the OIDC client. 
+
+### Setup the Vue Sample Application.
+
+The Okta CLI allows you to very conveniently setup and configure the OIDC application.  
+
+```
+cd 1-vue-sample
+okta start
+```
+
+After this completes, the `.okta.env` file is populated with the `ISSUER` and `CLIENT_ID` environment variables.
+
+![Okta-CLI Create Vue Sample](/images/okta-cli-vue-sample.png)
+
+### Install and Run the SPA
+
+You will need to install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) in order to install the dependencies and run the vue samples. 
+
+```
+cd spa
+npm install
+npm start
+```
+
+This will run the vue application locally. 
+
+![Start Vue App](/images/npm-start-vue-spa.png)
+
+In your browser, navigate to <http://localhost:8080>
+
+
+
+
+
+## Resource Server
 
 
 ## AWS CLI
