@@ -87,8 +87,19 @@ This will run the vue application locally.
 
 In your browser, navigate to <http://localhost:8080>
 
+You should see this landing page. 
 
+![Landing Page](/images/browser-start-page.png)
 
+Click `Login` to continue.
+
+![Login Page](/images/browser-login-page.png)
+
+Enter an account credentials. You can use the email/password that you used while creating the Okta organization.
+
+After a successful authentication, you should see a logged in page as below:
+
+![Logged-in Page](/images/browser-logged-in-page.png)
 
 
 ## Resource Server
