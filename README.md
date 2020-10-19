@@ -3,10 +3,20 @@
 Follow the steps listed in this README to follow along the demos showcased in the AWS Okta Howdy Partner Event.
 
 ### Table of Contents
-**[Okta Setup Instructions](#get-started-with-okta)**<br>
-**[Run Single Page App with Okta Login](#run-spa)**<br>
-**[Run Resource Server](#run-resource-server)**<br>
-**[AWS CLI and Serverless](#aws-cli)**<br>
+**[Get Started with Okta](#get-started-with-okta)**<br>
+**[Secure a Single Page App with Okta](#secure-a-single-page-app-using-okta)**<br>
+**[Reduce User Onboarding/Signin Friction](#reduce-friction)**
+    - [Go Passwordless](#go-passwordless)
+    - [Use Social Login](#use-social-login)
+
+**[Secure a Resource Server](#run-resource-server)**<br>
+**[Secure AWS Services](#aws-cli)**
+    - [AWS API Gateway v2](#api-gateway-v2)
+    - [AWS API Gateway v1 + Custom Lambda Authorizers](#api-gateway-v1)
+    - [AWS Application Load Balancer](#alb)
+
+**[Secure a Mobile App using Okta](#secure-a-mobile-app-using-okta)**<br>
+**[What's coming next](#whats-coming-next)**<br>
 
 ## Get Started with Okta
 
@@ -46,7 +56,7 @@ Copy and paste the password link in a browser and click on 'Reset Password'.
 
 Your Okta Organization setup is now complete!
 
-## Single Page App
+## Secure a Single Page App using Okta
 
 This section will help you setup a sample Single Page App with the following capabilities:
  - Login and Registration
@@ -95,12 +105,19 @@ Click `Login` to continue.
 
 ![Login Page](/images/browser-login-page.png)
 
-Enter an account credentials. You can use the email/password that you used while creating the Okta organization.
+Enter an account credentials. You can use the email and password that you used while creating the Okta organization.
+
+Click `Sign In`.
 
 After a successful authentication, you should see a logged in page as below:
 
 ![Logged-in Page](/images/browser-logged-in-page.png)
 
+## Reduce User Onboarding/Signin Friction
+
+### Go Passwordless
+
+### Use Social Login
 
 ## Resource Server
 
