@@ -5,14 +5,14 @@ Follow the steps listed in this README to follow along the demos showcased in th
 ### Table of Contents
 **[Get Started with Okta](#get-started-with-okta)**<br>
 **[Secure a Single Page App with Okta](#secure-a-single-page-app-using-okta)**<br>
-**[Reduce User Onboarding/Signin Friction](#reduce-friction)**
-    - [Go Passwordless](#go-passwordless)
+**[Reduce User Onboarding/Signin Friction](#reduce-friction)**<br>
+    - [Go Passwordless](#go-passwordless)<br>
     - [Use Social Login](#use-social-login)
 
 **[Secure a Resource Server](#run-resource-server)**<br>
-**[Secure AWS Services](#aws-cli)**
-    - [AWS API Gateway v2](#api-gateway-v2)
-    - [AWS API Gateway v1 + Custom Lambda Authorizers](#api-gateway-v1)
+**[Secure AWS Services](#aws-cli)**<br>
+    - [AWS API Gateway v2](#api-gateway-v2)<br>
+    - [AWS API Gateway v1 + Custom Lambda Authorizers](#api-gateway-v1)<br>
     - [AWS Application Load Balancer](#alb)
 
 **[Secure a Mobile App using Okta](#secure-a-mobile-app-using-okta)**<br>
