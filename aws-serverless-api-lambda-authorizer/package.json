@@ -1,0 +1,12 @@
+{
+  "name": "aws-serverless-api-lambda-authorizer",
+  "version": "1.0.0",
+  "description": "Serverless messages REST service with JWT validation using a custom lambda authorizer",
+  "author": "Maneesh Sahu",
+  "license": "MIT",
+  "dependencies": {
+    "@okta/jwt-verifier": "^1.0.0",
+    "aws-auth-policy": "^0.1.0",
+    "uuid": "^8.3.1"
+  }
+}

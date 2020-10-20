@@ -1,0 +1,7 @@
+{
+  "name": "aws-serverless-api-gateway-v2",
+  "version": "1.0.0",
+  "description": "Serverless messages HTTP API service with default JWT validation ",
+  "author": "Maneesh Sahu",
+  "license": "MIT"
+}

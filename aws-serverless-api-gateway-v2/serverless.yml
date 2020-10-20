@@ -1,0 +1,32 @@
+service: messages-okta-service
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  httpApi:
+    payload: '1.0'
+    cors: true
+    authorizers:
+      oktaJwtAuthorizer:
+        identitySource: $request.header.Authorization
+        issuerUrl: ${CLI_OKTA_ISSUER}
+        audience:
+          - api://default
+  logs:
+    httpApi: true
+
+functions:
+  getMessages:
+    handler: messages.handler
+    events:
+      - httpApi:
+          method: get
+          path: /api/messages
+          authorizer:
+            name: oktaJwtAuthorizer
+            scopes:
+              - openid
+              - profile
+              - email
+

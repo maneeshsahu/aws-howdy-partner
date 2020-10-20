@@ -1,0 +1,30 @@
+service: messages-okta-service-claims
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    OKTA_ISSUER: ${CLI_OKTA_ISSUER}
+    OKTA_AUDIENCE: api://default
+    OKTA_CLIENT_ID: ${CLI_OKTA_CLIENT_ID}
+# you can overwrite defaults here
+#  stage: dev
+#  region: us-east-1
+
+functions:
+  oktaAuth:
+    handler: authorizer/handler.auth
+    cors: true
+
+  getMessages:
+    handler: messages.handler
+    events:
+      - http:
+          method: get
+          path: /api/messages
+          authorizer:
+            name: oktaAuth
+            identityValidationExpression: ^Bearer [-0-9a-zA-z\.]*$
+            resultTtlInSeconds: 0
+          cors: true
