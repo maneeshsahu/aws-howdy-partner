@@ -5,12 +5,9 @@ Follow the steps listed in this README to follow along the demos showcased in th
 ### Table of Contents
 **[Get Started with Okta](#get-started-with-okta)**<br>
 **[Secure a Single Page App with Okta](#secure-a-single-page-app-using-okta)**<br>
-**[Reduce User Onboarding/Signin Friction](#reduce-friction)**<br>
-    - [Go Passwordless](#go-passwordless)<br>
-    - [Use Social Login](#use-social-login)
 
-**[Secure a Resource Server](#run-resource-server)**<br>
-**[Secure AWS Services](#aws-cli)**<br>
+**[Secure the Resource Server](#secure-the-resource-server)**<br>
+    - [Local Express Server](#local-resource-server)<br>
     - [AWS API Gateway v2](#api-gateway-v2)<br>
     - [AWS API Gateway v1 + Custom Lambda Authorizers](#api-gateway-v1)<br>
     - [AWS Application Load Balancer](#alb)
@@ -70,10 +67,16 @@ In this sample, Okta is the OIDC authorization and token server. The SPA is the 
 
 ### Setup the Vue Sample Application.
 
+Clone the [https://github.com/maneeshsahu/aws-howdy-partner] github repo:
+
+```
+git clone https://github.com/maneeshsahu/aws-howdy-partner
+cd aws-howdy-partner
+```
+
 The Okta CLI allows you to very conveniently setup and configure the OIDC application.  
 
 ```
-cd 1-vue-sample
 okta start
 ```
 
@@ -113,13 +116,10 @@ After a successful authentication, you should see a logged in page as below:
 
 ![Logged-in Page](/images/browser-logged-in-page.png)
 
-## Reduce User Onboarding/Signin Friction
 
-### Go Passwordless
+## Secure the Resource Server
 
-### Use Social Login
-
-## Resource Server
+### Local Express Server
 
 
 ## AWS CLI
