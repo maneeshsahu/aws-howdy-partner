@@ -13,6 +13,10 @@ module.exports.handler = async event => {
           {
             date:  new Date(),
             text: 'Okta + AWS = Awesome'
+          },
+          {
+            date:  new Date(),
+            text: 'Using API Gateway v2. Serverless!!!'
           }
         ]
       },

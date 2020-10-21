@@ -5,6 +5,9 @@ module.exports.handler = async (event, context) => {
   console.log("event", sub);
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
     body: JSON.stringify(
       {
         messages: [
@@ -15,6 +18,10 @@ module.exports.handler = async (event, context) => {
           {
             date:  new Date(),
             text: 'Okta + AWS = Awesome'
+          },
+          {
+            date:  new Date(),
+            text: 'Using API Gateway with custom Lambda Authorizer!'
           }
         ]
       },

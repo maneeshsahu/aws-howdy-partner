@@ -119,9 +119,9 @@ After a successful authentication, you should see a logged in page as below:
 
 ## Secure the Resource Server
 
-The `Resource Server` is the OAuth 2.0 term for an API Server. The resource server handles the authenticated requests from an application like the Single Page App we just built.
+`Resource Server` is the OAuth 2.0 term for an API Server. The resource server handles the authenticated requests from applications such as the Single Page App we just built.
 
-We will look at multiple options for building the resource server, starting from an application server to the modern serverless technologies.
+We will look at multiple options for building the resource server, starting from an application server to modern serverless technologies.
 
 ### Local Express Server
 
@@ -184,22 +184,112 @@ If you open the Developer/Javascript Console of the browser and inspect the XHR 
 
 ### API Gateway v2
 
+Resources servers hosted in application servers are good. Serverless is another method. 
+
+We are now going to host the same `messages` API in AWS using [HTTP APis for AWS API Gateway](https://aws.amazon.com/blogs/compute/announcing-http-apis-for-amazon-api-gateway/).
+
+#### Install Serverless
+
+We will use Serverless to setup the service in AWS.
+
+See installation instructions here for your operating system: https://www.serverless.com/framework/docs/getting-started/
+
+```
+# e.g. Mac OS X via npm:
+$ npm install -g serverless
+```
+
+#### Install AWS CLI
+
+AWS CLI will be used by serverless to deploy to AWS
+
+Follow the instructions in the links below to install and configure the aws CLI: 
+
+1. Install AWS CLI: https://docs.idp.rocks/setup/#install-aws-cli 
+2. Enable Programmatic Access in your AWS Account: https://docs.idp.rocks/setup/#enable-programmatic-access-to-aws 
+3. Create Named Profile in AWS CLI: https://docs.idp.rocks/setup/#create-named-profile-in-aws-cli 
+
+Deploy the serverless function to your AWS account
+
+```
+cd aws-serverless-api-gateway-v2
+npm install
+sls deploy -v
+```
+
+At the end of a successful deployment, you will see the endpoint for the `messages` service.
+
+```
+endpoints:
+  GET - https://8hny7YYYYYY.execute-api.us-east-1.amazonaws.com/api/messages
+functions:
+  getMessages: messages-okta-service-dev-getMessages
+layers:
+  None
+
+Stack Outputs
+GetMessagesLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:661XXXXXX:function:messages-okta-service-dev-getMessages:2
+ServerlessDeploymentBucketName: messages-okta-service-de-serverlessdeploymentbuck-f6je8qe5pu57
+HttpApiUrl: https://8hny7YYYYYY.execute-api.us-east-1.amazonaws.com
+
+Serverless: Removing old service artifacts from S3...
+```
+
+You can use the endpoint, https://8hny7YYYYYY.execute-api.us-east-1.amazonaws.com/api/messages as shown above (will be different for your deployment), in the Single Page app by updating the resourceServer.messagesUrl property in `spa/src/config.js` from http://localhost:8000/api/messages.
+
+After you restart the SPA, and go back to http://localhost:8080/messages, you will see a new message at the bottom.
+
+![Messages from API Gateway v2](/images/browser-messages-serverless.png)
+
+If you inspect the XHR requests in the Developer/Javascript console, you will also see the updated endpoint for the messages service.
+
+![XHR serverless request](/images/browser-js-console-xhr-request-serverless-1.png)
+
+
 ### API Gateway v1 and Custom Lambda Authorizer
 
+The Default JWT Authorizer that ships with API Gateway v2 is good, but if you need more authorization policies beyond just basing them on `scopes`, you will have to utilize the API Gateway v1 with custom lambda authorizers.
+
+Custom Lambda Authorizers allow you to make your policy decisions and create a policy document specifying which resources/endpoints that the JWT has access to. 
+
+Installation is similar to as in API Gateway v2.
+
+```
+cd aws-serverless-api-lambda-authorizer
+npm install
+sls deploy -v
+```
+
+You will find the endpoint after the deployment
+
+```
+endpoints:
+  GET - https://l1huvZZZZZZ.execute-api.us-east-1.amazonaws.com/dev/api/messages
+functions:
+  oktaAuth: messages-okta-service-claims-dev-oktaAuth
+  getMessages: messages-okta-service-claims-dev-getMessages
+layers:
+  None
+
+Stack Outputs
+OktaAuthLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:661XXXXXX:function:messages-okta-service-claims-dev-oktaAuth:6
+GetMessagesLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:661XXXXXX:function:messages-okta-service-claims-dev-getMessages:6
+ServiceEndpoint: https://l1huvZZZZZZ.execute-api.us-east-1.amazonaws.com/dev
+ServerlessDeploymentBucketName: messages-okta-service-cl-serverlessdeploymentbuck-cxerojosuiis
+
+Serverless: Removing old service artifacts from S3...
+```
+
+You can use the endpoint, https://l1huvZZZZZZ.execute-api.us-east-1.amazonaws.com/api/messages as shown above (will be different for your deployment), in the Single Page app by updating the resourceServer.messagesUrl property in `spa/src/config.js` from http://localhost:8000/api/messages.
+
+After you restart the SPA, and go back to http://localhost:8080/messages, you will see a new message at the bottom.
+
+![Messages from API Gateway + Custom Lambda Authorizer](/images/browser-messages-serverless-2.png)
 
 
-## AWS CLI
+## Secure a Mobile App using Okta
 
-To setup the AWS services like API Gateway and Lamba, we will be using serverless and AWS CLI.
-
-### Install Serverless
-
-See installation instructions here for your operating system: <https://www.serverless.com/framework/docs/getting-started/>
-
-### Install AWS CLI
-
-Follow instructions here: <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>
-
+Okta provides a lot of native/hybrid SDKs to build mobile apps. In this demo, we will use ReactNative to build a simple mobile app that requires authentication (user+password).
 
 
 
