@@ -7,7 +7,7 @@ Follow the steps listed in this README to follow along the demos showcased in th
 **[Secure a Single Page App with Okta](#secure-a-single-page-app-using-okta)**<br>
 
 **[Secure the Resource Server](#secure-the-resource-server)**<br>
-    - [Local Express Server](#local-resource-server)<br>
+    - [Local Express Server](#local-express-server)<br>
     - [AWS API Gateway v2](#api-gateway-v2)<br>
     - [AWS API Gateway v1 + Custom Lambda Authorizers](#api-gateway-v1)<br>
     - [AWS Application Load Balancer](#alb)
@@ -119,7 +119,73 @@ After a successful authentication, you should see a logged in page as below:
 
 ## Secure the Resource Server
 
+The `Resource Server` is the OAuth 2.0 term for an API Server. The resource server handles the authenticated requests from an application like the Single Page App we just built.
+
+We will look at multiple options for building the resource server, starting from an application server to the modern serverless technologies.
+
 ### Local Express Server
+
+[Express](https://expressjs.com/) is a minimalist, web framework for Node.js. Its great because it can be deployed and run wherever there is a node runtime. In this section, we will be running the resource server locally on port 8000. You can also host the server in AWS in EC2 images or better using [Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs.html). 
+
+From the aws-howdy-partner root directory, run the following commands:
+
+```
+cd resource-server
+npm install
+npm start
+```
+
+If all goes well, you should see this in your Terminal's standard output:
+
+```
+> @okta/samples-nodejs-express-4@3.1.0 start /Users/maneeshsahu/aws/aws-howdy-partner/resource-server
+> node server.js
+
+Resource Server Ready on port 8000
+```
+
+The resource server has one API `GET /api/messages` that is protected using a JWT authorizer. i.e., it checks the bearer token passed in the Authorization header for the following:
+    - Valid JWT and Signature
+    - Valid Issuer
+    - Valid Audience
+
+So if you hit the endpoint directly using cURL, you will get this Unauthorized error response:
+```
+> curl http://localhost:8000/api/messages
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Unauthorized</pre>
+</body>
+</html>
+```
+
+However, if you access the resource server through the Single Page App - http://localhost:8080/messages
+
+You will now see a list of messages:
+
+![Resource Server Running](/images/browser-resource-server-page.png)
+
+instead of the error that you may have seen earlier when the resource server was not running.
+
+![Resource Server Unavailable](/images/browser-resource-server-unavailable.png)
+
+If you open the Developer/Javascript Console of the browser and inspect the XHR calls. You will see a call to `messages`. You can inspect the request and response:
+
+![XHR request](/images/browser-js-console-xhr-request.png)
+
+![XHR response](/images/browser-js-console-xhr-response.png)
+
+
+### API Gateway v2
+
+### API Gateway v1 and Custom Lambda Authorizer
+
 
 
 ## AWS CLI
