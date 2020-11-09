@@ -289,7 +289,9 @@ After you restart the SPA, and go back to http://localhost:8080/messages, you wi
 
 ## Secure a Mobile App using Okta
 
-Okta provides a lot of native/hybrid SDKs to build mobile apps. In this demo, we will use ReactNative to build a simple mobile app that requires authentication (user+password).
+Congrats! You have successfully created a SPA powered by Okta and AWS.
+
+Follow the README in this repo - https://github.com/maneeshsahu/OktaMobile to build a native mobile app. 
 
 
 
